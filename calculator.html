@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Shipment Calculator · Saldora Global</title>
+<meta name="description" content="Free shipment calculator for US importers: CBM, chargeable weight for air, express and LCL, container capacity estimate and a US landed-cost estimate with MPF and HMF.">
+<link rel="canonical" href="https://saldoraglobal.com/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saldora Global">
+<meta property="og:title" content="Shipment Calculator · Saldora Global">
+<meta property="og:description" content="Free shipment calculator for US importers: CBM, chargeable weight for air, express and LCL, container capacity estimate and a US landed-cost estimate with MPF and HMF.">
+<meta property="og:url" content="https://saldoraglobal.com/calculator.html">
+<meta property="og:image" content="https://saldoraglobal.com/assets/og-saldora.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230B1F3A'/%3E%3Cpath d='M50 56C43 44 46 31 50 27C54 31 57 44 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M50 56C40 50 34 40 33 34C40 36 47 45 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M50 56C60 50 66 40 67 34C60 36 53 45 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M22 65q7 -4 14 0t14 0t14 0t14 0' stroke='%23C9A227' stroke-width='3' fill='none'/%3E%3Cpath d='M22 73q7 -4 14 0t14 0t14 0t14 0' stroke='%23C9A227' stroke-width='2.4' fill='none'/%3E%3C/svg%3E" />
+<link rel="apple-touch-icon" href="assets/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<meta name="robots" content="index,follow">
+<style>
+.calc{display:grid;gap:24px}
+.calc-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.calc-grid{grid-template-columns:minmax(0,1fr)}}
+.calc .card{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.calc .card>*,.calc>*{min-width:0}
+.h2s{font-size:1.5rem;margin-top:4px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{border:0;background:transparent;color:var(--ink-soft);font:600 .84rem var(--sans);padding:7px 14px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#FBF8F1}
+.tablewrap{overflow-x:auto;position:relative}
+table{border-collapse:collapse;width:100%;min-width:520px;font-variant-numeric:tabular-nums}
+th{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:0 6px 8px;border-bottom:1px solid var(--line)}
+th.r{text-align:right}
+td{padding:6px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.out{font-family:var(--mono);font-size:.85rem;text-align:right;white-space:nowrap}
+input,select{width:100%;font:500 .95rem var(--sans);color:var(--ink);background:var(--ivory);border:1px solid var(--line);border-radius:8px;padding:8px 9px;font-variant-numeric:tabular-nums}
+input[aria-invalid="true"]{border-color:var(--err);box-shadow:0 0 0 1px var(--err)}
+td input{min-width:64px}
+.del{background:none;border:0;color:var(--ink-soft);cursor:pointer;font-size:1.2rem;line-height:1;padding:4px 8px}
+.err{color:var(--err);font-size:.88rem;font-weight:600;min-height:0}
+.err:empty{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ship-label{border:2px solid var(--navy);border-radius:var(--radius);background:var(--card-bg);overflow:hidden}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ship-label{border-color:var(--gold-dim)}}
+.ship-label .strip{background:var(--navy);color:#FBF8F1;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px;display:flex;justify-content:space-between}
+.kv{display:grid;grid-template-columns:1fr 1fr}
+.kv div{padding:14px 16px;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.kv div:first-child{border-right:1px solid var(--line)}
+.kv b{font-family:var(--serif);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+.kv span{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.mode{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:baseline}
+.mode:last-child{border-bottom:0}
+.mode .n{font-weight:700}
+.mode .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.mode .d{grid-column:2/4;color:var(--ink-soft);font-size:.84rem}
+.pill{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--section-alt);color:var(--ink-soft);align-self:center}
+.pill.vol{background:var(--warn-bg);color:var(--warn-ink)}
+.boxes{display:grid;gap:16px}
+.box{display:grid;gap:6px}
+.box .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;font-size:.95rem}
+.box .top b{font-weight:700}
+.box .top span{font-family:var(--mono);font-size:.82rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.bars{display:grid;grid-template-columns:62px 1fr;gap:6px 10px;align-items:center;font-size:.72rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em}
+.bar{height:10px;border-radius:999px;background:var(--section-alt);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--navy);display:block;border-radius:999px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .bar i{background:var(--gold-soft)}}
+.bar i.over{background:var(--gold)}
+.bar .mark{position:absolute;top:0;bottom:0;left:85%;width:2px;background:var(--ink);opacity:.45}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.fields label{display:grid;gap:4px;font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+.ledger{display:grid;font-variant-numeric:tabular-nums}
+.ledger div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+.ledger div span:last-child{font-family:var(--mono)}
+.ledger .total{border-bottom:0;border-top:2px solid var(--gold);margin-top:4px;padding-top:12px;font-weight:700;font-size:1.05rem}
+.ledger .total span:last-child{font-size:1.15rem}
+.disclaimer{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:12px 14px;font-size:.85rem}
+.toast{font-size:.85rem;color:var(--ink-soft)}
+</style>
+
+
+</head>
+<body>
+<header class="site-header">
+  <div class="announce" role="note">FREE tariff consultation by email — no cost, no obligation · <a href="./#tariffs">Request yours</a></div>
+  <div class="wrap nav">
+    <a class="brand" href="./" aria-label="Saldora Global — home">
+      <img src="assets/saldora-lotus-logo.png" alt="" width="40" height="40">
+      <span><span class="brand-name">Saldora Global</span><span class="brand-sub">Freight Desk · Importer Tools</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary"><a href="./#desks">Freight Desk</a><a href="./#offers">Importer Tools</a><a href="./#lane">Lanes</a><a href="./#tariffs">Tariff Consultation</a><a href="calculator.html" aria-current="page">Calculator</a><a href="./#faq">FAQ</a><a class="btn btn-gold btn-sm" href="./#quote">Request a Quote</a></nav>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu"><a href="./#desks">Freight Desk</a><a href="./#offers">Importer Tools</a><a href="./#lane">Lanes</a><a href="./#tariffs">Tariff Consultation</a><a href="calculator.html">Calculator</a><a href="./#faq">FAQ</a><a href="./#quote">Request a Quote</a></div>
+</header>
+<main>
+<div class="page-hero" style="padding-bottom:64px">
+  <div class="wrap">
+    <div class="crumb"><a href="./#offers">Importer Tools</a> / Shipment Calculator</div>
+    <h1>Shipment <em>Calculator</em></h1>
+    <p class="lede">List your cartons once. You get CBM, chargeable weight for air, express and LCL, a container capacity estimate, and a US landed-cost estimate. Free, no sign-up, nothing stored.</p>
+  </div>
+</div>
+
+<section style="padding-top:48px">
+<div class="wrap calc">
+  <div class="calc-grid">
+    <div class="card" aria-labelledby="h-cartons">
+      <div class="row">
+        <div><div class="label">Step 1</div><h2 id="h-cartons" class="h2s">Carton list</h2></div>
+        <div class="seg" role="group" aria-label="Units">
+          <button type="button" id="u-metric" aria-pressed="true">cm · kg</button>
+          <button type="button" id="u-imperial" aria-pressed="false">in · lb</button>
+        </div>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Cartons</th><th id="th-l">L cm</th><th id="th-w">W cm</th><th id="th-h">H cm</th><th id="th-wt">kg / ctn</th><th class="r">CBM</th><th><span class="sr">Remove</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="err" id="row-err" role="alert"></p>
+      <div class="row">
+        <button type="button" class="btn btn-outline btn-sm" id="add">+ Add carton size</button>
+        <span class="src">Example cartons are loaded. Replace them with yours.</span>
+      </div>
+    </div>
+
+    <aside class="ship-label" aria-labelledby="h-label">
+      <div class="strip"><span id="h-label">Shipment summary</span><span id="ctn-count">0 ctns</span></div>
+      <div class="kv">
+        <div><span>Volume</span><b id="o-cbm">0</b><span id="o-cuft">0 cu ft</span></div>
+        <div><span>Gross weight</span><b id="o-kg">0</b><span id="o-lb">0 lb</span></div>
+      </div>
+      <div class="mode"><span class="n">Air freight</span><span class="v" id="o-air">–</span><span class="pill" id="p-air">–</span><span class="d">Volume ÷ 6,000 (cm³ per kg). You pay the higher of actual or volume weight.</span></div>
+      <div class="mode"><span class="n">Express courier</span><span class="v" id="o-exp">–</span><span class="pill" id="p-exp">–</span><span class="d">Volume ÷ 5,000, the usual courier divisor.</span></div>
+      <div class="mode"><span class="n">Ocean LCL</span><span class="v" id="o-lcl">–</span><span class="pill" id="p-lcl">–</span><span class="d">Weight or measure: 1 CBM is charged as 1,000 kg, whichever is higher.</span></div>
+    </aside>
+  </div>
+
+  <div class="card" aria-labelledby="h-fit">
+    <div><div class="label">Step 2</div><h2 id="h-fit" class="h2s">Container capacity estimate</h2></div>
+    <div class="boxes" id="boxes"></div>
+    <p class="src">This compares your total volume and weight with each container's internal volume and typical payload. It does not check whether individual cartons fit through the doors or stack safely; the partner forwarder confirms the load plan. The marker at 85% is a practical loading limit. Payload limits vary by carrier and road-weight rules.</p>
+  </div>
+
+  <div class="card" aria-labelledby="h-landed">
+    <div><div class="label">Step 3</div><h2 id="h-landed" class="h2s">Landed cost estimate (US import)</h2></div>
+    <div class="calc-grid lc">
+      <div style="display:grid;gap:14px;min-width:0">
+        <div class="fields" id="lc-fields">
+          <label for="f-value">Goods value (USD)<input id="f-value" type="number" min="0" step="any" value="18500"></label>
+          <label for="f-freight">International freight (USD)<input id="f-freight" type="number" min="0" step="any" value="2400"></label>
+          <label for="f-ins">Insurance (USD)<input id="f-ins" type="number" min="0" step="any" value="95"></label>
+          <label for="f-duty">Duty rate you were given (%)<input id="f-duty" type="number" min="0" step="any" value="6.5"></label>
+          <label for="f-extra">Additional tariffs (%)<input id="f-extra" type="number" min="0" step="any" value="0"></label>
+          <label for="f-mode">Mode<select id="f-mode"><option value="ocean">Ocean</option><option value="air">Air</option></select></label>
+          <label for="f-local">Broker, port and trucking fees (USD)<input id="f-local" type="number" min="0" step="any" value="850"></label>
+          <label for="f-units">Units in shipment<input id="f-units" type="number" min="1" step="1" value="1200"></label>
+        </div>
+        <details>
+          <summary class="src" style="cursor:pointer">Fee rates used (editable)</summary>
+          <div class="fields" style="margin-top:10px">
+            <label for="f-mpf">MPF rate (%)<input id="f-mpf" type="number" min="0" step="any" value="0.3464"></label>
+            <label for="f-mpfmin">MPF minimum (USD)<input id="f-mpfmin" type="number" min="0" step="any" value="33.58"></label>
+            <label for="f-mpfmax">MPF maximum (USD)<input id="f-mpfmax" type="number" min="0" step="any" value="651.50"></label>
+            <label for="f-hmf">HMF rate, ocean only (%)<input id="f-hmf" type="number" min="0" step="any" value="0.125"></label>
+          </div>
+          <p class="src" style="margin-top:8px">CBP adjusts the Merchandise Processing Fee minimum and maximum each fiscal year (October). Check the current figures before relying on them.</p>
+        </details>
+        <p class="err" id="lc-err" role="alert"></p>
+      </div>
+      <div style="display:grid;gap:12px;min-width:0;align-content:start">
+        <div class="ledger" id="ledger"></div>
+        <p class="disclaimer">Estimate only. Duty uses the rate you enter, applied to the goods value. Saldora Global does not hold or publish HTS duty data. Confirm classification and duty with a licensed customs broker.</p>
+        <div class="row"><button type="button" class="btn btn-gold btn-sm" id="copy">Copy summary</button><span class="toast" id="toast" role="status"></span></div>
+        <p class="src">Paste the summary into an email to <a href="mailto:info@saldoraglobal.com">info@saldoraglobal.com</a> for a free tariff consultation or a quote.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<div class="contact-strip">
+  <div class="wrap">
+    <div><h2>Want a quote for this shipment?</h2><p>Email the freight desk for a free tariff consultation or a quote from our FMC-licensed partner. Written reply, no obligation.</p></div>
+    <div style="display:grid;gap:10px;justify-items:start">
+      <a class="btn btn-gold" href="./#quote">Request a Quote</a>
+      <span>or email <a class="email-pill" href="mailto:info@saldoraglobal.com">info@saldoraglobal.com</a></span>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="./"><img src="assets/saldora-lotus-logo.png" alt="" width="40" height="40"><span><span class="brand-name">Saldora Global</span><span class="brand-sub">Freight Desk · Importer Tools</span></span></a>
+        <p style="margin-top:16px;max-width:320px">Independent ocean-freight sales agency for US importers, with free import calculators and a free tariff consultation by email.</p>
+      </div>
+      <div><h4>Explore</h4><a href="./#desks">Freight Desk</a><a href="./#offers">Importer Tools</a><a href="./#lane">Lanes</a><a href="./#tariffs">Tariff Consultation</a><a href="calculator.html">Shipment Calculator</a><a href="./#faq">FAQ</a></div>
+      <div><h4>Contact</h4><a href="mailto:info@saldoraglobal.com">info@saldoraglobal.com</a><p>Staten Island, New York, USA</p><a href="./#quote">Request a quote →</a></div>
+    </div>
+    <div class="compliance"><strong>Compliance note:</strong> Saldora Global is an independent sales agency and holds no FMC ocean transportation intermediary licence. Ocean transportation is provided by an FMC-licensed ocean transportation intermediary, named on every quotation. Saldora Global does not operate vessels and does not issue bills of lading. Tariff consultations and calculator results are general educational information only — not customs brokerage, not a binding classification, and not legal advice. Saldora Global does not transact customs business with U.S. Customs and Border Protection; final HTS classification and duty are confirmed by a licensed customs broker. Tariff information can change without notice.</div>
+    <div class="copy">© 2026 Saldora Global · Staten Island, NY · saldoraglobal.com</div>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+<script src="calculator.js" defer></script>
+</body>
+</html>
