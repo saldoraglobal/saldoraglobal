@@ -654,6 +654,11 @@
   .sg-meta span{font-size:.8rem;color:rgba(251,248,241,.7)}
   @media (max-width:860px){.sg-meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+  .sg-ticker{background:var(--gold);color:var(--navy-deep);overflow:hidden;border-block:1px solid rgba(6,20,38,.15)}
+  .sg-track{display:flex;width:max-content;gap:0}
+  .sg-track span{white-space:nowrap;padding:13px 28px;font-weight:800;font-size:.86rem;letter-spacing:.04em;position:relative}
+  .sg-track span::after{content:"◆";position:absolute;right:-6px;font-size:.55rem;top:50%;transform:translateY(-50%);opacity:.55}
+
   .sg-label{font-size:.74rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
   .sg-head{max-width:720px;margin-bottom:44px}
   .sg-head.center{margin-left:auto;margin-right:auto;text-align:center}
@@ -726,6 +731,9 @@
     .sg-hero-copy>*:nth-child(4){animation-delay:.3s}
     .sg-meta{animation-delay:.5s}
     @keyframes sgIn{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
+    .sg-track{animation:sgTick 60s linear infinite}
+    .sg-ticker:hover .sg-track{animation-play-state:paused}
+    @keyframes sgTick{to{transform:translateX(-50%)}}
     /* scroll reveals: JS adds .sg-pre only to elements below the fold, so content stays visible without JS */
     .sg-pre.sg-in-left{opacity:0;transform:translateX(-40px)}
     .sg-pre.sg-in-right{opacity:0;transform:translateX(40px)}
@@ -834,6 +842,14 @@
       </div>
     </div>
   </section>
+
+  <!-- ======== LANE TICKER ======== -->
+  <div class="sg-ticker" aria-label="Lanes we quote into the USA">
+    <div class="sg-track">
+      <span>Nhava Sheva → New York / New Jersey</span><span>Mundra → Savannah</span><span>Chennai → Los Angeles / Long Beach</span><span>Jebel Ali → Norfolk</span><span>Shanghai → Los Angeles / Long Beach</span><span>Ho Chi Minh City → Houston</span><span>Hamburg → New York / New Jersey</span><span>Genoa → Savannah</span><span>Yokohama → Los Angeles / Long Beach</span><span>Busan → Los Angeles / Long Beach</span><span>Kaohsiung → Houston</span>
+      <span aria-hidden="true">Nhava Sheva → New York / New Jersey</span><span aria-hidden="true">Mundra → Savannah</span><span aria-hidden="true">Chennai → Los Angeles / Long Beach</span><span aria-hidden="true">Jebel Ali → Norfolk</span><span aria-hidden="true">Shanghai → Los Angeles / Long Beach</span><span aria-hidden="true">Ho Chi Minh City → Houston</span><span aria-hidden="true">Hamburg → New York / New Jersey</span><span aria-hidden="true">Genoa → Savannah</span><span aria-hidden="true">Yokohama → Los Angeles / Long Beach</span><span aria-hidden="true">Busan → Los Angeles / Long Beach</span><span aria-hidden="true">Kaohsiung → Houston</span>
+    </div>
+  </div>
 
   <!-- ======== OFFERS ======== -->
   <section class="sg-offers" id="offers" aria-labelledby="sg-off-h">
