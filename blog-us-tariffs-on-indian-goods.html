@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="US tariffs on Indian goods in 2026 — what changed, how the duty layers stack today, and the six questions to ask your broker before you price the deal." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230B1F3A'/%3E%3Cpath d='M50 56C43 44 46 31 50 27C54 31 57 44 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M50 56C40 50 34 40 33 34C40 36 47 45 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M50 56C60 50 66 40 67 34C60 36 53 45 50 56Z' fill='%23C9A227'/%3E%3Cpath d='M22 65q7 -4 14 0t14 0t14 0t14 0' stroke='%23C9A227' stroke-width='3' fill='none'/%3E%3Cpath d='M22 73q7 -4 14 0t14 0t14 0t14 0' stroke='%23C9A227' stroke-width='2.4' fill='none'/%3E%3C/svg%3E" />
+<title>US tariffs on Indian goods: what changed, what it means, what to ask your broker — Saldora Global</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --navy-deep:#061426;
+    --navy-2:#10294d;
+    --gold:#C9A227;
+    --gold-soft:#E4CB6E;
+    --gold-dim:rgba(201,162,39,.35);
+    --ivory:#FBF8F1;
+    --paper:#FFFFFF;
+    --ink:#17222F;
+    --ink-soft:#4A5568;
+    --line:rgba(11,31,58,.12);
+    --card-bg:#FFFFFF;
+    --section-alt:#F3EEE1;
+    --header-bg:rgba(6,20,38,.82);
+    --shadow:0 18px 50px rgba(6,20,38,.14);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ivory:#0A1A30;
+      --paper:#0E2242;
+      --ink:#F2ECDC;
+      --ink-soft:#B9C2D4;
+      --line:rgba(251,248,241,.14);
+      --card-bg:#0E2242;
+      --section-alt:#08182E;
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  }
+  body{
+    margin:0;
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.65;
+    font-size:16.5px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:"Spectral",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.15;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .gold{color:var(--gold)}
+  .label{
+    font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  }
+  .label::before{content:"";width:34px;height:1px;background:var(--gold)}
+  .label.center{justify-content:center}
+  .label.center::after{content:"";width:34px;height:1px;background:var(--gold)}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    background:var(--header-bg);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,162,39,.22);
+    transition:box-shadow .3s ease;
+  }
+  header.scrolled{box-shadow:0 10px 34px rgba(0,0,0,.35)}
+  .nav{display:flex;align-items:center;gap:28px;height:74px}
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:#FBF8F1;flex:none}
+  .brand svg{width:46px;height:46px;flex:none}
+  .brand-name{font-family:"Spectral",serif;font-weight:700;font-size:1.12rem;letter-spacing:.24em;color:#FBF8F1;line-height:1}
+  .brand-sub{font-size:.58rem;font-weight:700;letter-spacing:.34em;color:var(--gold-soft);margin-top:5px;text-transform:uppercase}
+  .nav-links{display:flex;gap:30px;margin-left:auto;align-items:center}
+  .nav-links a{
+    color:rgba(251,248,241,.86);text-decoration:none;font-size:.86rem;font-weight:600;letter-spacing:.04em;
+  }
+  .nav-links a:hover{color:var(--gold-soft)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+    padding:13px 26px;font-weight:700;font-size:.92rem;text-decoration:none;cursor:pointer;
+    border:1px solid transparent;transition:transform .18s ease, background .18s ease, color .18s ease;
+    font-family:inherit;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-gold{background:var(--gold);color:#0B1F3A}
+  .btn-gold:hover{background:var(--gold-soft)}
+  .btn-ghost{background:transparent;color:#FBF8F1;border-color:rgba(251,248,241,.45)}
+  .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+  .btn-navy{background:var(--navy);color:#FBF8F1}
+  @media (prefers-color-scheme: dark){ .btn-navy{background:var(--gold);color:#0B1F3A} }
+  .btn-navy:hover{opacity:.92}
+  .btn-sm{padding:10px 20px;font-size:.84rem}
+  .menu-btn{
+    display:none;margin-left:auto;background:none;border:1px solid rgba(251,248,241,.35);
+    border-radius:10px;width:44px;height:44px;cursor:pointer;align-items:center;justify-content:center;
+  }
+  .menu-btn span{display:block;width:20px;height:2px;background:#FBF8F1;position:relative}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#FBF8F1}
+  .menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+  .mobile-menu{display:none;background:var(--navy-deep);border-top:1px solid rgba(201,162,39,.2);padding:10px 24px 22px}
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;color:#FBF8F1;text-decoration:none;padding:12px 0;font-weight:600;border-bottom:1px solid rgba(251,248,241,.08)}
+  .mobile-menu a:last-child{border-bottom:none}
+  @media (max-width:900px){
+    .nav-links{display:none}
+    .menu-btn{display:flex}
+  }
+
+  /* ---------- Announcement strip ---------- */
+  .announce{
+    background:var(--gold);color:#0B1F3A;text-align:center;
+    font-size:.78rem;font-weight:700;letter-spacing:.04em;padding:8px 16px;
+  }
+  .announce a{color:#0B1F3A;text-decoration:underline;text-underline-offset:2px}
+  [id]{scroll-margin-top:126px}
+
+  /* ---------- Article ---------- */
+  .article-head{
+    background:var(--navy-deep);color:#FBF8F1;position:relative;overflow:hidden;
+    padding:196px 0 72px;
+  }
+  .article-head::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(640px 300px at 85% -10%, rgba(201,162,39,.16), transparent 60%),
+               radial-gradient(560px 260px at 8% 115%, rgba(201,162,39,.1), transparent 65%);
+  }
+  .article-head .wrap{position:relative;max-width:1180px}
+  .article-col{max-width:780px;margin:0 auto}
+  .back-home{
+    display:inline-flex;align-items:center;gap:8px;color:var(--gold-soft);text-decoration:none;
+    font-size:.84rem;font-weight:700;letter-spacing:.06em;margin-bottom:34px;
+  }
+  .back-home:hover{color:var(--gold)}
+  .article-head h1{font-size:clamp(2.1rem,4.6vw,3.3rem);letter-spacing:-.01em;max-width:780px}
+  .byline{
+    margin-top:22px;font-size:.92rem;font-style:italic;font-family:"Spectral",Georgia,serif;
+    color:rgba(251,248,241,.75);
+  }
+  .article-body{padding:72px 0 88px}
+  @media (max-width:640px){ .article-head{padding:168px 0 56px} .article-body{padding:52px 0 64px} }
+  .article-body p{margin-bottom:22px;font-size:1.06rem}
+  .article-body h2{
+    font-size:clamp(1.55rem,3vw,2rem);letter-spacing:-.01em;
+    margin:52px 0 20px;padding-top:34px;border-top:1px solid var(--line);
+  }
+  .article-body h2:first-of-type{margin-top:40px}
+  .article-body ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:16px}
+  .article-body li{
+    position:relative;padding-left:30px;font-size:1.04rem;
+  }
+  .article-body li::before{
+    content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;
+    background:var(--gold);
+  }
+  .article-body li strong{color:var(--ink)}
+  .article-body ol{margin:0 0 26px;padding-left:28px;display:grid;gap:16px}
+  .article-body ol li{padding-left:8px}
+  .article-body ol li::before{content:none}
+  .article-body ol li::marker{color:var(--gold);font-weight:800}
+  .article-body p.article-sources{font-size:.9rem;color:var(--ink-soft);line-height:1.75;margin-top:36px}
+  .article-cta{
+    margin-top:48px;background:var(--navy);color:#FBF8F1;border-radius:20px;
+    padding:34px 32px;box-shadow:var(--shadow);
+  }
+  .article-cta p{margin:0;font-size:1.04rem;color:rgba(251,248,241,.9)}
+  .article-cta strong{color:#FBF8F1}
+  .article-cta a{color:var(--gold-soft);font-weight:700;text-decoration:none}
+  .article-cta a:hover{text-decoration:underline}
+  .article-foot{margin-top:44px}
+  .article-foot .back-home{color:var(--gold);margin-bottom:0}
+  .article-foot .back-home:hover{color:var(--ink)}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep);color:rgba(251,248,241,.72);padding:56px 0 42px;border-top:1px solid rgba(201,162,39,.25)}
+  .foot-grid{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;margin-bottom:36px}
+  .foot-brand{display:flex;gap:13px;align-items:center;color:#FBF8F1;text-decoration:none}
+  .foot-brand svg{width:40px;height:40px}
+  .foot-col h4{color:#FBF8F1;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 14px;font-family:"Manrope",sans-serif}
+  .foot-col a{display:block;color:rgba(251,248,241,.72);text-decoration:none;margin-bottom:9px;font-size:.94rem}
+  .foot-col a:hover{color:var(--gold-soft)}
+  .foot-col p{font-size:.94rem;margin-bottom:9px}
+  .compliance{
+    border-top:1px solid rgba(251,248,241,.12);padding-top:26px;font-size:.85rem;line-height:1.7;
+    color:rgba(251,248,241,.58);max-width:860px;
+  }
+  .compliance strong{color:rgba(251,248,241,.85)}
+  .foot-base{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:.82rem;color:rgba(251,248,241,.45)}
+</style>
+</head>
+<body>
+
+<!-- ======== SVG DEFS: Saldora lotus-and-waves mark ======== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="saldora-mark">
+      <circle cx="50" cy="50" r="48" fill="#0B1F3A"/>
+      <circle cx="50" cy="50" r="44.5" fill="none" stroke="#C9A227" stroke-width="1"/>
+      <g fill="#C9A227" stroke="#0B1F3A" stroke-width="1.1">
+        <path transform="translate(50 56) rotate(-77)" d="M0 0C-5.6 -6.4 -3.4 -13.6 0 -16C3.4 -13.6 5.6 -6.4 0 0Z"/>
+        <path transform="translate(50 56) rotate(77)" d="M0 0C-5.6 -6.4 -3.4 -13.6 0 -16C3.4 -13.6 5.6 -6.4 0 0Z"/>
+        <path transform="translate(50 56) rotate(-55)" d="M0 0C-6 -8.3 -3.6 -17.7 0 -20.8C3.6 -17.7 6 -8.3 0 0Z"/>
+        <path transform="translate(50 56) rotate(55)" d="M0 0C-6 -8.3 -3.6 -17.7 0 -20.8C3.6 -17.7 6 -8.3 0 0Z"/>
+        <path transform="translate(50 56) rotate(-33)" d="M0 0C-6.4 -9.9 -3.8 -21.1 0 -24.8C3.8 -21.1 6.4 -9.9 0 0Z"/>
+        <path transform="translate(50 56) rotate(33)" d="M0 0C-6.4 -9.9 -3.8 -21.1 0 -24.8C3.8 -21.1 6.4 -9.9 0 0Z"/>
+        <path transform="translate(50 56) rotate(-11)" d="M0 0C-6.8 -11.5 -4.1 -24.5 0 -28.8C4.1 -24.5 6.8 -11.5 0 0Z"/>
+        <path transform="translate(50 56) rotate(11)" d="M0 0C-6.8 -11.5 -4.1 -24.5 0 -28.8C4.1 -24.5 6.8 -11.5 0 0Z"/>
+      </g>
+      <circle cx="50" cy="56" r="2" fill="#0B1F3A" stroke="#C9A227" stroke-width="1"/>
+      <g fill="none" stroke="#C9A227" stroke-linecap="round">
+        <path d="M20 63q7.5 -3.6 15 0t15 0t15 0t15 0" stroke-width="2.2"/>
+        <path d="M20 69.5q7.5 -3.6 15 0t15 0t15 0t15 0" stroke-width="1.8"/>
+        <path d="M20 76q7.5 -3.6 15 0t15 0t15 0t15 0" stroke-width="1.4"/>
+      </g>
+    </g>
+  </defs>
+</svg>
+
+<header id="site-header">
+  <div class="announce" role="note">FREE tariff consultation by email — no cost, no obligation &nbsp;·&nbsp; <a href="/#tariffs">Request yours</a></div>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Saldora Global — home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#saldora-mark"/></svg>
+      <span>
+        <span class="brand-name">SALDORA</span>
+        <span class="brand-sub" style="display:block">Global · Ocean Freight</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#lane">The Lane</a>
+      <a href="/#services">Services</a>
+      <a href="/#tariffs">Tariff Consultation</a>
+      <a href="/#how">How It Works</a>
+      <a href="/#about">About</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/blog.html">Blog</a>
+      <a class="btn btn-gold btn-sm" href="/#quote">Request a Quote</a>
+    </nav>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/#lane">The Lane</a>
+    <a href="/#services">Services</a>
+    <a href="/#tariffs">Tariff Consultation</a>
+    <a href="/#how">How It Works</a>
+    <a href="/#about">About</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/#quote">Request a Quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ======== ARTICLE HEADER ======== -->
+  <div class="article-head">
+    <div class="wrap">
+      <div class="article-col">
+        <a class="back-home" href="/">&larr; Back to home</a>
+        <div class="label">Saldora Global · Blog</div>
+        <h1>US tariffs on Indian goods: what changed, what it means, what to ask your broker</h1>
+        <p class="byline">Saldora Global · November 11, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== ARTICLE BODY ======== -->
+  <article class="article-body">
+    <div class="wrap">
+      <div class="article-col">
+
+        <p>If you priced a shipment from India earlier this year and have not re-checked the duty picture since, your numbers are probably out of date. The US tariff stack on Indian goods changed three times in 2026 — not by a little, and not in the direction most headlines suggested. This post walks through what actually changed, what an importer of Indian goods pays today, and the questions worth putting to your customs broker before you commit to an order.</p>
+
+        <p><em>Tariff picture checked November 9, 2026 — see sources at the end. Tariffs change by proclamation and Federal Register notice, sometimes with days of notice, so confirm the position for your product and entry date before you rely on it.</em></p>
+
+        <h2>What changed in 2026 — in order</h2>
+        <p><strong>The old additional duties ended.</strong> The tariffs imposed under emergency-powers authority (IEEPA) — including the reciprocal tariff on Indian goods and the separate additional 25% duty linked to Russian oil, which was removed for entries on or after February 7, 2026 — are gone. The Supreme Court struck down the IEEPA tariffs on February 20, 2026, and the 18% rate discussed in the February 2026 US–India framework announcement was never applied as a collected rate. If you are still modelling 18%, 25%, or 50% as the general additional layer for India, you are modelling a regime that no longer exists.</p>
+        <p><strong>A temporary bridge followed.</strong> A 10% surcharge under Section 122 ran from February 24, 2026 and expired at its 150-day limit on July 24, 2026.</p>
+        <p><strong>The current layer started July 24, 2026.</strong> Since that date, a Section 301 duty arising from the US Trade Representative's forced-labour investigations has applied to products of 60 economies. India is in the 10% tier — the tier for economies that ban forced-labour imports or have committed to do so — under HTS heading 9903.05.44.</p>
+        <p><strong>There is still no signed India–US trade deal.</strong> As of October 12, 2026, the position on record was a framework for an interim agreement announced on February 6, 2026 — no signed agreement, no implemented tariff schedule from that framework. A framework is not a rate you can enter goods under.</p>
+
+        <h2>What it means for an importer today</h2>
+        <p>For most Indian goods, the duty picture today is built in layers:</p>
+        <ul>
+          <li><strong>The normal duty for your product</strong> — the Column 1 General rate for its Harmonized Tariff Schedule classification. This varies by product and is the layer your classification controls. Indian goods have had no Generalized System of Preferences (GSP) benefits since June 5, 2019, so the general rate applies unless the line itself is duty-free.</li>
+          <li><strong>Plus the additional 10% Section 301 duty</strong> for products of India (heading 9903.05.44), on top of the normal rate, for goods not on the exemption lists.</li>
+          <li><strong>Section 232 goods are treated separately.</strong> Goods already covered by Section 232 duties — for example certain steel, aluminium and other covered products — do not also pay the Section 301 layer above; they pay under the Section 232 programme instead. Which programme covers your product matters more than the headline rate.</li>
+          <li><strong>Product-specific duties can still apply on top</strong> — for example antidumping or countervailing duties where an order covers your goods.</li>
+        </ul>
+        <p>That is general guidance only, not a duty calculation for your shipment. Your total depends on your product's exact classification, its origin, any exemption, and its entry date — which is precisely why the next section exists.</p>
+
+        <h2>What to ask your broker</h2>
+        <p>Before you price the deal, not after the container sails:</p>
+        <ol>
+          <li><strong>What is my confirmed HTS classification, and what is its normal rate?</strong> The classification drives everything else, and the importer of record — usually you — carries the legal duty of reasonable care for it, even when a broker files for you.</li>
+          <li><strong>Does the 10% Section 301 layer apply to my product, or is it exempt?</strong> Ask the broker to confirm heading 9903.05.44 against the current exemption lists for your line.</li>
+          <li><strong>Is my product under Section 232 instead?</strong> If so, the Section 301 layer should not be added on top — confirm which programme applies, in writing.</li>
+          <li><strong>Are there antidumping or countervailing duties on this product from India?</strong> These are product- and producer-specific and are easy to miss in a headline-rate estimate.</li>
+          <li><strong>What entry date are we modelling, and what changes if the shipment slips?</strong> In a year when the general layer changed in February and again in July, the entry date is part of the calculation.</li>
+          <li><strong>Did we pay IEEPA duties on earlier entries, and is any refund route open?</strong> CBP has run a claims process for IEEPA duties paid before they were struck down; whether an entry qualifies is an entry-by-entry question for your broker.</li>
+        </ol>
+
+        <h2>The short version</h2>
+        <p>Forget the 18%, 25% and 50% headlines from earlier rounds. Today, most Indian goods pay their normal product rate plus an additional 10% Section 301 duty, Section 232 goods pay under that programme instead, exemptions exist, and there is no signed trade deal changing that yet. Classify first, confirm which layer applies to your line, and model the entry date you will actually hit.</p>
+
+        <div class="article-cta">
+          <p><strong>Planning a shipment from India?</strong> Saldora's tariff consultation is free, by email — send us what you're importing and where from, and we'll outline the duty picture for your product in plain language, including what to have your broker confirm. <a href="mailto:info@saldoraglobal.com">info@saldoraglobal.com</a> · <a href="/">saldoraglobal.com</a></p>
+        </div>
+
+        <p class="article-sources"><em>Sources (picture checked November 9, 2026): Section 301 forced-labour tariff by origin, November 9, 2026 — India 10%, heading 9903.05.44, in force since July 24, 2026, added to the HTS General rate — <a href="https://www.platton.ai/insights/import/us-tariffs-by-country/">https://www.platton.ai/insights/import/us-tariffs-by-country/</a> · Position as of November 5, 2026 — IEEPA tariffs struck down February 20, 2026, Section 122 bridge to July 24, 2026, Section 301 duties from July 24, 2026, CBP CSMS #69326983 — <a href="https://traddal.com/resources/us-tariff-changes">https://traddal.com/resources/us-tariff-changes</a> · Duty stack as of October 5, 2026 — Column 1 General rate, 10% Section 301 under 9903.05.44, Section 232 instead of Section 301 on covered goods, no GSP since June 5, 2019 — <a href="https://airliftusa.com/tariff-updates/india">https://airliftusa.com/tariff-updates/india</a> · No signed India–US trade deal as of October 12, 2026; February 6, 2026 framework only; 18% never applied — <a href="https://atblegal.com/blog/international-trade/india-us-trade-deal/">https://atblegal.com/blog/international-trade/india-us-trade-deal/</a></em></p>
+
+        <div class="article-foot">
+          <a class="back-home" href="/">&larr; Back to home</a>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-brand" href="/">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#saldora-mark"/></svg>
+          <span>
+            <span class="brand-name" style="font-size:1rem">SALDORA</span>
+            <span class="brand-sub" style="display:block">Global · Ocean Freight</span>
+          </span>
+        </a>
+        <p style="margin-top:16px;font-size:.92rem;max-width:300px">Independent ocean-freight sales agency for US importers, with a free tariff consultation by email. Worldwide origins, one destination: the USA.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="/#lane">The Lane</a>
+        <a href="/#services">Services</a>
+        <a href="/#tariffs">Tariff Consultation</a>
+        <a href="/#how">How It Works</a>
+        <a href="/#about">About</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@saldoraglobal.com">info@saldoraglobal.com</a>
+        <p>Staten Island, New York, USA</p>
+        <a href="/#quote">Request a quote →</a>
+      </div>
+    </div>
+    <div class="compliance">
+      <strong>Compliance note:</strong> Saldora Global is an independent sales agency and holds no FMC ocean transportation intermediary licence. Ocean transportation is provided by an FMC-licensed ocean transportation intermediary, named on every quotation. Saldora Global does not operate vessels and does not issue bills of lading. <strong>Tariff consultations</strong> are general educational guidance only — not customs brokerage, not a binding classification, and not legal advice. Saldora Global does not transact customs business with U.S. Customs and Border Protection; final HTS classification and duty are confirmed by a licensed customs broker. The free email tariff consultation is general information only — it provides no freight rates and makes no booking. Tariff information can change without notice.
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Saldora Global · Staten Island, NY</span>
+      <span>saldoraglobal.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Header shadow on scroll */
+  var header = document.getElementById("site-header");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 12); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* Mobile menu */
+  var menuBtn = document.getElementById("menu-btn");
+  var mobileMenu = document.getElementById("mobile-menu");
+  menuBtn.addEventListener("click", function(){
+    var open = mobileMenu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  mobileMenu.addEventListener("click", function(e){
+    if (e.target.tagName === "A") {
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+</script>
+</body>
+</html>
