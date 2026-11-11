@@ -814,6 +814,12 @@
     .sg-desk{padding:28px 22px}
     .sg-desk li{flex-direction:column;gap:2px}
   }
+
+  /* Blog flash — latest article band (additive, Nov 2026) */
+  .sg-blog-flash{background:var(--navy);color:#FBF8F1;padding:54px 0 58px;border-bottom:1px solid var(--gold-dim)}
+  .sg-blog-flash h2{font-size:clamp(1.65rem,3.4vw,2.45rem);margin-top:12px;text-wrap:balance;max-width:840px}
+  .sg-blog-flash-line{margin:16px 0 26px;font-size:1.05rem;line-height:1.6;color:rgba(251,248,241,.85);max-width:660px}
+  @media (max-width:640px){.sg-blog-flash{padding:42px 0 46px}}
 </style>
 </head>
 <body>
@@ -861,6 +867,7 @@
       <a href="#tariffs">Tariff Consultation</a>
       <a href="calculator.html">Calculator</a>
       <a href="#faq">FAQ</a>
+      <a href="/blog.html">Blog</a>
       <a class="btn btn-gold btn-sm sg-shine" href="#quote">Request a Quote</a>
     </nav>
     <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
@@ -873,6 +880,7 @@
     <a href="calculator.html">Shipment Calculator</a>
     <a href="#how">How It Works</a>
     <a href="#faq">FAQ</a>
+    <a href="/blog.html">Blog</a>
     <a href="#quote">Request a Quote</a>
   </div>
 </header>
@@ -924,6 +932,16 @@
         <div><b>FMC-licensed</b><span>Partner named on every quotation</span></div>
         <div><b>Free calculator</b><span>Landed cost in minutes, no sign-up</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ======== BLOG FLASH — latest article ======== -->
+  <section class="sg-blog-flash" id="blog" aria-labelledby="sg-blog-flash-h">
+    <div class="wrap">
+      <p class="sg-label">New on the Blog</p>
+      <h2 id="sg-blog-flash-h">Shipping from Nhava Sheva to New York: an importer's checklist</h2>
+      <p class="sg-blog-flash-line">The lane, the documents, and the one filing clock that runs from loading — a step-by-step checklist for US importers of Indian goods.</p>
+      <a class="btn btn-gold sg-shine" href="/blog-nhava-sheva-to-new-york-checklist.html">Read the article →</a>
     </div>
   </section>
 
